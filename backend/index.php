@@ -15,9 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Results calculation
     $averageLifeExpectancy = $grandparentsAvgAge;
     $weeksInYear = 52;
-    $hoursInWeek = 168;
     $totalWeeks = $averageLifeExpectancy * $weeksInYear;
 
+    $hoursInWeek = 168;
     $sleepWeeks = $sleepHours / $hoursInWeek;
     $commuteWeeks = $commuteHours / $hoursInWeek;
     $workWeeks = $workHours / $hoursInWeek;
