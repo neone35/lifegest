@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import MainForm from './MainForm';
 
 function App() {
   const [formData, setFormData] = useState({
@@ -37,64 +38,11 @@ function App() {
   return (
     <div className="App">
       <h1>Lifegest</h1>
-      <form onSubmit={handleSubmit} className="p-4 bg-gray-100 rounded-lg">
-        <div className="flex items-center mb-4">
-          <label className="w-1/2">Birth Date:</label>
-          <input
-            className="border border-gray-300 rounded-md p-2 w-1/2"
-            type="date"
-            name="birthDate"
-            value={formData.birthDate}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex items-center mb-4">
-          <label className="w-1/2">Average Age of Grandparents:</label>
-          <input
-            className="border border-gray-300 rounded-md p-2 w-1/2"
-            type="number"
-            name="grandparentsAvgAge"
-            value={formData.grandparentsAvgAge}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex items-center mb-4">
-          <label className="w-1/2">Hours of Sleep per Day:</label>
-          <input
-            className="border border-gray-300 rounded-md p-2 w-1/2"
-            type="number"
-            name="sleepHours"
-            value={formData.sleepHours}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex items-center mb-4">
-          <label className="w-1/2">Hours of Commute per Day:</label>
-          <input
-            className="border border-gray-300 rounded-md p-2 w-1/2"
-            type="number"
-            name="commuteHours"
-            value={formData.commuteHours}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex items-center mb-4">
-          <label className="w-1/2">Hours of Work per Day:</label>
-          <input
-            className="border border-gray-300 rounded-md p-2 w-1/2"
-            type="number"
-            name="workHours"
-            value={formData.workHours}
-            onChange={handleChange}
-          />
-        </div>
-        <button
-          type="submit"
-          className="mt-2 bg-blue-500 text-white rounded-lg p-2"
-        >
-          Calculate
-        </button>
-      </form>
+      <MainForm
+        formData={formData}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+      />
 
       {result && (
         <div>
