@@ -11,7 +11,7 @@ const LifeExpectancyForm = ({ formData, handleChange, handleSubmit }) => {
   ];
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 bg-gray-100 rounded-lg">
+    <form onSubmit={handleSubmit} className="p-4 bg-gray-100 rounded-lg lg:mx-80">
       {formFields.map((field) => (
         <div key={field.name} className="flex items-center mb-4">
           <label className="w-1/2">{field.label}:</label>

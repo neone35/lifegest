@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import MainForm from './MainForm';
+import Header from './Header';
 
 function App() {
   const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Lifegest</h1>
+      <Header />
       <MainForm
         formData={formData}
         handleChange={handleChange}
