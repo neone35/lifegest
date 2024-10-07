@@ -1,0 +1,6 @@
+Options -MultiViews
+RewriteEngine On
+
+# Add types
+AddType text/javascript .js
+AddType text/css .css
