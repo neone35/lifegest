@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import MainForm from './MainForm';
-import Header from './Header';
+import Header from "./Header";
+import MainForm from "./MainForm";
+import Results from "./Results";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -46,14 +47,13 @@ function App() {
       />
 
       {result && (
-        <div>
-          <h2>Results</h2>
-          <p>Total Weeks: {result.totalWeeks || "N/A"}</p>
-          <p>Sleep Weeks: {result.sleepWeeks || "N/A"}</p>
-          <p>Commute Weeks: {result.commuteWeeks || "N/A"}</p>
-          <p>Work Weeks: {result.workWeeks || "N/A"}</p>
-          <p>Free Time Weeks: {result.freeTimeWeeks || "N/A"}</p>
-        </div>
+        <Results
+          totalWeeks={result.totalWeeks}
+          sleepWeeks={result.sleepWeeks}
+          commuteWeeks={result.commuteWeeks}
+          workWeeks={result.workWeeks}
+          freeTimeWeeks={result.freeTimeWeeks}
+        />
       )}
     </div>
   );

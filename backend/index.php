@@ -32,16 +32,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Results calculation
-    $averageLifeExpectancy = $grandparentsAvgAge;
+    $averageLifeYears = $grandparentsAvgAge;
     $weeksInYear = 52;
-    $totalWeeks = $averageLifeExpectancy * $weeksInYear;
+    $totalWeeks = $averageLifeYears * $weeksInYear;
+
+    $sleepHoursWeek = $sleepHours * 7;
+    $commuteHoursWeek = $commuteHours * 7;
+    $workHoursWeek = $workHours * 7;
 
     $hoursInWeek = 168;
-    $sleepWeeks = $sleepHours / $hoursInWeek;
-    $commuteWeeks = $commuteHours / $hoursInWeek;
-    $workWeeks = $workHours / $hoursInWeek;
+    $sleepWeekRatio = $sleepHoursWeek / $hoursInWeek;
+    $commuteWeekRatio = $commuteHoursWeek / $hoursInWeek;
+    $workWeekRatio = $workHoursWeek / $hoursInWeek;
 
-    $freeTimeWeeks = $totalWeeks - ($sleepWeeks + $commuteHours + $workHours);
+    $sleepWeeks = $totalWeeks * $sleepWeekRatio;
+    $commuteWeeks = $totalWeeks * $commuteWeekRatio;
+    $workWeeks = $totalWeeks * $workWeekRatio;
+
+    $freeTimeWeeks = $totalWeeks - ($sleepWeeks + $commuteWeeks + $workWeeks);
 
     // Create the response
     $response = [
