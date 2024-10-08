@@ -17,14 +17,18 @@ const calculateLifeStats = ({ grandparentsAvgAge, sleepHours, commuteHours, work
     const sleepWeeks = totalWeeks * sleepWeekRatio;
     const commuteWeeks = totalWeeks * commuteWeekRatio;
     const workWeeks = totalWeeks * workWeekRatio;
+    const cookEatWeeks = 144;
+    const hygieneWeeks = 108;
   
-    const freeTimeWeeks = totalWeeks - (sleepWeeks + commuteWeeks + workWeeks);
+    const freeTimeWeeks = totalWeeks - (sleepWeeks + commuteWeeks + workWeeks + cookEatWeeks + hygieneWeeks);
   
     return {
       totalWeeks: Math.floor(totalWeeks),
       sleepWeeks: Math.floor(sleepWeeks),
       commuteWeeks: Math.floor(commuteWeeks),
       workWeeks: Math.floor(workWeeks),
+      cookEatWeeks: cookEatWeeks,
+      hygieneWeeks: hygieneWeeks,
       freeTimeWeeks: Math.floor(freeTimeWeeks),
     };
   };

@@ -1,16 +1,21 @@
 import React from "react";
 
+
 const Results = ({
   totalWeeks,
   sleepWeeks,
   commuteWeeks,
   workWeeks,
+  cookEatWeeks,
+  hygieneWeeks,
   freeTimeWeeks,
 }) => {
   const colors = {
     sleep: "bg-blue-400",
     commute: "bg-yellow-400",
     work: "bg-red-400",
+    cookEat: "bg-cyan-400",
+    hygiene: "bg-violet-400",
     freeTime: "bg-green-400",
   };
 
@@ -25,6 +30,10 @@ const Results = ({
         colorClass = colors.commute;
       } else if (i < sleepWeeks + commuteWeeks + workWeeks) {
         colorClass = colors.work;
+      } else if (i < sleepWeeks + commuteWeeks + workWeeks + cookEatWeeks) {
+        colorClass = colors.cookEat;
+      } else if (i < sleepWeeks + commuteWeeks + workWeeks + cookEatWeeks + hygieneWeeks) {
+        colorClass = colors.hygiene;
       }
 
       weeks.push(<div key={i} className={`w-2 h-2 ${colorClass} m-0.5`} />);
@@ -38,6 +47,8 @@ const Results = ({
     sleepWeeks: Math.round(sleepWeeks),
     commuteWeeks: Math.round(commuteWeeks),
     workWeeks: Math.round(workWeeks),
+    cookEatWeeks: Math.round(cookEatWeeks),
+    hygieneWeeks: Math.round(hygieneWeeks),
     freeTimeWeeks: Math.round(freeTimeWeeks),
   };
 
@@ -69,6 +80,14 @@ const Results = ({
           <div className="flex items-center">
             <div className="w-4 h-4 bg-red-400 mr-2"></div>
             <span>Work - {roundedResults.workWeeks} weeks</span>
+          </div>
+          <div className="flex items-center">
+            <div className="w-4 h-4 bg-cyan-400 mr-2"></div>
+            <span>Cook/Eat - {roundedResults.cookEatWeeks} weeks</span>
+          </div>
+          <div className="flex items-center">
+            <div className="w-4 h-4 bg-violet-400 mr-2"></div>
+            <span>Hygiene - {roundedResults.hygieneWeeks} weeks</span>
           </div>
           <div className="flex items-center">
             <div className="w-4 h-4 bg-green-400 mr-2"></div>

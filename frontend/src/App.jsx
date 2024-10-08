@@ -51,6 +51,8 @@ function App() {
           sleepWeeks={result.sleepWeeks}
           commuteWeeks={result.commuteWeeks}
           workWeeks={result.workWeeks}
+          cookEatWeeks={result.cookEatWeeks}
+          hygieneWeeks={result.hygieneWeeks}
           freeTimeWeeks={result.freeTimeWeeks}
         />
       )}
