@@ -3,6 +3,8 @@ import axios from "axios";
 import Header from "./Header";
 import MainForm from "./MainForm";
 import Results from "./Results";
+import calcLifeStats from "./calcLifeStats";
+import Footer from "./Footer";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -26,12 +28,9 @@ function App() {
     e.preventDefault();
     try {
       console.log("Form data:", formData);
-      const response = await axios.post(
-        "http://lifegest.duckdns.org/backend/index.php",
-        formData
-      );
-      console.log("API Response:", response.data);
-      setResult(response.data);
+      const results = calcLifeStats(formData);
+      console.log("Calculated Results:", results);
+      setResult(results);
     } catch (error) {
       console.error("Error fetching data", error);
     }
@@ -55,6 +54,7 @@ function App() {
           freeTimeWeeks={result.freeTimeWeeks}
         />
       )}
+      <Footer />
     </div>
   );
 }

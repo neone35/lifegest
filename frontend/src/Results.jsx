@@ -27,7 +27,7 @@ const Results = ({
         colorClass = colors.work;
       }
 
-      weeks.push(<div key={i} className={`w-4 h-4 ${colorClass} m-0.5`} />);
+      weeks.push(<div key={i} className={`w-2 h-2 ${colorClass} m-0.5`} />);
     }
     return weeks;
   };
@@ -44,17 +44,17 @@ const Results = ({
   return (
     <div className="p-4 bg-gray-100 rounded-lg shadow-md mt-4">
       <h2 className="text-2xl font-bold mb-4">
-        Your Life Distribution{" "}
-        <span className="text-base font-normal italic mb-4">
-          each square represents one week of your life
+        Your Life Distribution{"  "}
+        <span className="text-base font-normal mb-4">
+          total {roundedResults.totalWeeks} weeks
         </span>
       </h2>
       <div className="flex flex-wrap">{renderWeeks()}</div>
       <div className="mt-4">
         <h3 className="text-xl font-semibold mb-2">
           Legend{" "}
-          <span className="text-base font-normal italic mb-4">
-            (one year has 52 weeks)
+          <span className="text-base font-normal mb-4">
+            one year is 52 weeks
           </span>
         </h3>
         <div className="flex space-x-4">
